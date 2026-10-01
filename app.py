@@ -1,15 +1,11 @@
-from flask import Flask, jsonify, request
+from flask from flask import Flask, jsonify, request, send_file
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def home():
-    return jsonify({
-        "app": "UMzuzwana Shuttles",
-        "status": "online",
-        "message": "Welcome to UMzuzwana Shuttles"
-    })
+    return send_file("index.html")
 
 
 @app.route("/health")
