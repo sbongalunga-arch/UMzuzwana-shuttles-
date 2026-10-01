@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UMzuzwana Shuttles</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f6f8;
+    color: #222;
+}
+
+.header {
+    background: #111;
+    color: white;
+    padding: 28px 20px;
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+.header p {
+    margin: 8px 0 0;
+}
+
+.card {
+    max-width: 500px;
+    margin: 25px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+h2 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    margin-top: 6px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    background: #111;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+#message {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>UMzuzwana Shuttles</h1>
+    <p>Safe • Reliable • Convenient</p>
+</div>
+
+<div class="card">
+    <h2>Book Your Shuttle</h2>
+
+    <form id="bookingForm">
+
+        <label>Full Name</label>
+        <input type="text" id="name" required>
+
+        <label>Pickup Location</label>
+        <input type="text" id="pickup" required>
+
+        <label>Destination</label>
+        <input type="text" id="destination" required>
+
+        <label>Date</label>
+        <input type="date" id="date" required>
+
+        <label>Time</label>
+        <input type="time" id="time" required>
+
+        <button type="submit">Book Shuttle</button>
+
+    </form>
+
+    <div id="message"></div>
+</div>
+
+<script>
+document.getElementById("bookingForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const booking = {
+        name: document.getElementById("name").value,
+        pickup: document.getElementById("pickup").value,
+        destination: document.getElementById("destination").value,
+        date: document.getElementById("date").value,
+        time: document.getElementById("time").value
+    };
+
+    const message = document.getElementById("message");
+    message.textContent = "Sending booking...";
+
+    try {
+        const response = await fetch("/book", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(booking)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            message.textContent = "Booking received successfully!";
+            document.getElementById("bookingForm").reset();
+        } else {
+            message.textContent = result.message;
+        }
+
+    } catch (error) {
+        message.textContent = "Unable to send booking. Please try again.";
+    }
+});
+</script>
+
+</body>
+</html>
