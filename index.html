@@ -11,16 +11,16 @@
     }
 
     body {
-      background: #f4f6f8;
-      color: #222;
+      background: #f4f7fb;
+      color: #1f2937;
       min-height: 100vh;
     }
 
     header {
-      background: #111827;
+      background: #0f172a;
       color: white;
+      padding: 28px 20px;
       text-align: center;
-      padding: 30px 20px;
     }
 
     header h1 {
@@ -30,58 +30,69 @@
 
     header p {
       font-size: 15px;
-      color: #d1d5db;
+      opacity: 0.9;
     }
 
     .container {
-      max-width: 600px;
+      width: 92%;
+      max-width: 650px;
       margin: 30px auto;
-      padding: 0 20px;
     }
 
     .booking-card {
       background: white;
+      border-radius: 18px;
       padding: 28px;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
     }
 
     .booking-card h2 {
-      margin-bottom: 20px;
-      color: #111827;
+      text-align: center;
+      margin-bottom: 8px;
+      font-size: 25px;
+    }
+
+    .booking-card .subtitle {
+      text-align: center;
+      color: #6b7280;
+      margin-bottom: 25px;
     }
 
     label {
       display: block;
-      margin-top: 15px;
-      margin-bottom: 7px;
       font-weight: bold;
-      font-size: 14px;
+      margin: 15px 0 7px;
     }
 
     input {
       width: 100%;
-      padding: 13px;
+      padding: 14px;
       border: 1px solid #d1d5db;
-      border-radius: 8px;
-      font-size: 15px;
+      border-radius: 10px;
+      font-size: 16px;
+      background: white;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #2563eb;
     }
 
     button {
       width: 100%;
-      margin-top: 22px;
-      padding: 14px;
+      margin-top: 25px;
+      padding: 15px;
       border: none;
-      border-radius: 8px;
-      background: #111827;
+      border-radius: 10px;
+      background: #2563eb;
       color: white;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: bold;
       cursor: pointer;
     }
 
     button:hover {
-      background: #1f2937;
+      background: #1d4ed8;
     }
 
     #message {
@@ -92,134 +103,163 @@
 
     .features {
       display: grid;
-      gap: 15px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
       margin-top: 25px;
     }
 
     .feature {
       background: white;
-      padding: 20px;
-      border-radius: 12px;
+      padding: 18px 12px;
+      border-radius: 14px;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
 
-    .feature h3 {
-      margin-bottom: 7px;
+    .feature h4 {
+      margin-bottom: 8px;
     }
 
     .feature p {
-      color: #666;
-      font-size: 14px;
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.4;
     }
-  </style></head><body><header>
-  <h1>UMzuzwana Shuttles</h1>
-  <p>Safe • Reliable • Convenient</p>
-</header><div class="container">  <div class="booking-card">
-    <h2>Book Your Shuttle</h2><form id="bookingForm">
 
-  <label for="name">Full Name</label>
-  <input
-    type="text"
-    id="name"
-    name="name"
-    placeholder="Enter your full name"
-    required
-  >
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #6b7280;
+      font-size: 13px;
+    }
 
-  <label for="pickup">Pickup Location</label>
-  <input
-    type="text"
-    id="pickup"
-    name="pickup"
-    placeholder="Where should we pick you up?"
-    required
-  >
-
-  <label for="destination">Destination</label>
-  <input
-    type="text"
-    id="destination"
-    name="destination"
-    placeholder="Where are you going?"
-    required
-  >
-
-  <label for="date">Travel Date</label>
-  <input
-    type="date"
-    id="date"
-    name="date"
-    required
-  >
-
-  <label for="time">Pickup Time</label>
-  <input
-    type="time"
-    id="time"
-    name="time"
-    required
-  >
-
-  <button type="submit">Book Your Shuttle</button>
-
-  <div id="message"></div>
-
-</form>
-
-  </div>  <div class="features"><div class="feature">
-  <h3>Safe Travel</h3>
-  <p>Your safety is our priority on every journey.</p>
-</div>
-
-<div class="feature">
-  <h3>Reliable Service</h3>
-  <p>Professional and dependable shuttle transportation.</p>
-</div>
-
-<div class="feature">
-  <h3>Convenient Booking</h3>
-  <p>Book your shuttle quickly and easily.</p>
-</div>
-
-  </div></div><script>
-  const form = document.getElementById("bookingForm");
-  const message = document.getElementById("message");
-
-  form.addEventListener("submit", async function(event) {
-    event.preventDefault();
-
-    const bookingData = {
-      name: document.getElementById("name").value,
-      pickup: document.getElementById("pickup").value,
-      destination: document.getElementById("destination").value,
-      date: document.getElementById("date").value,
-      time: document.getElementById("time").value
-    };
-
-    message.textContent = "Submitting booking...";
-
-    try {
-      const response = await fetch("/bookings", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(bookingData)
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        message.textContent = "Booking successful! Thank you.";
-        form.reset();
-      } else {
-        message.textContent = result.message || "Booking could not be completed.";
+    @media (max-width: 600px) {
+      .features {
+        grid-template-columns: 1fr;
       }
 
-    } catch (error) {
-      message.textContent = "Unable to submit booking. Please try again.";
+      .booking-card {
+        padding: 20px;
+      }
     }
-  });
-</script></body>
+  </style></head><body>  <header>
+    <h1>UMzuzwana Shuttles</h1>
+    <p>Safe • Reliable • Convenient</p>
+  </header>  <div class="container"><div class="booking-card">
+  <h2>Book Your Shuttle</h2>
+  <p class="subtitle">Your journey, our priority</p>
+
+  <form id="bookingForm">
+
+    <label for="name">Full Name</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      placeholder="Enter your full name"
+      required
+    >
+
+    <label for="pickup">Pickup Location</label>
+    <input
+      type="text"
+      id="pickup"
+      name="pickup"
+      placeholder="Where should we pick you up?"
+      required
+    >
+
+    <label for="destination">Destination</label>
+    <input
+      type="text"
+      id="destination"
+      name="destination"
+      placeholder="Where are you going?"
+      required
+    >
+
+    <label for="date">Travel Date</label>
+    <input
+      type="date"
+      id="date"
+      name="date"
+      required
+    >
+
+    <label for="time">Pickup Time</label>
+    <input
+      type="time"
+      id="time"
+      name="time"
+      required
+    >
+
+    <button type="submit">Book Your Shuttle</button>
+
+    <div id="message"></div>
+
+  </form>
+</div>
+
+<div class="features">
+
+  <div class="feature">
+    <h4>Safe Travel</h4>
+    <p>Your safety is our priority on every journey.</p>
+  </div>
+
+  <div class="feature">
+    <h4>Reliable Service</h4>
+    <p>Professional and dependable shuttle transportation.</p>
+  </div>
+
+  <div class="feature">
+    <h4>Convenient Booking</h4>
+    <p>Book your shuttle quickly and easily.</p>
+  </div>
+
+</div>
+
+  </div>  <footer>
+    © 2026 UMzuzwana Shuttles • Johannesburg
+  </footer>  <script>
+    const form = document.getElementById("bookingForm");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      message.textContent = "Sending booking...";
+
+      const booking = {
+        name: document.getElementById("name").value,
+        pickup: document.getElementById("pickup").value,
+        destination: document.getElementById("destination").value,
+        date: document.getElementById("date").value,
+        time: document.getElementById("time").value
+      };
+
+      try {
+        const response = await fetch("/bookings", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(booking)
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          message.textContent = "Booking sent successfully!";
+          form.reset();
+        } else {
+          message.textContent = result.message || "Unable to send booking. Please try again.";
+        }
+
+      } catch (error) {
+        message.textContent = "Unable to send booking. Please try again.";
+      }
+    });
+  </script></body>
 </html>
