@@ -11,255 +11,209 @@
     }
 
     body {
-      background: #f4f7fb;
-      color: #1f2937;
-      min-height: 100vh;
+      background: #f4f7f9;
+      color: #1f2933;
     }
 
-    header {
-      background: #0f172a;
+    .header {
+      background: #0b3d3b;
       color: white;
-      padding: 28px 20px;
+      padding: 22px 20px;
       text-align: center;
     }
 
-    header h1 {
-      font-size: 30px;
-      margin-bottom: 8px;
+    .header h1 {
+      font-size: 28px;
+      margin-bottom: 6px;
     }
 
-    header p {
-      font-size: 15px;
+    .header p {
+      font-size: 14px;
       opacity: 0.9;
     }
 
-    .container {
-      width: 92%;
-      max-width: 650px;
-      margin: 30px auto;
+    .hero {
+      background: white;
+      padding: 35px 20px 25px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 25px;
+      color: #0b3d3b;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #667085;
+      font-size: 15px;
+      line-height: 1.5;
     }
 
     .booking-card {
       background: white;
-      border-radius: 18px;
-      padding: 28px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     }
 
-    .booking-card h2 {
-      text-align: center;
-      margin-bottom: 8px;
-      font-size: 25px;
-    }
-
-    .booking-card .subtitle {
-      text-align: center;
-      color: #6b7280;
-      margin-bottom: 25px;
+    .booking-card h3 {
+      color: #0b3d3b;
+      margin-bottom: 20px;
+      font-size: 21px;
     }
 
     label {
       display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
       font-weight: bold;
-      margin: 15px 0 7px;
+      color: #344054;
     }
 
-    input {
+    input, select {
       width: 100%;
-      padding: 14px;
-      border: 1px solid #d1d5db;
-      border-radius: 10px;
-      font-size: 16px;
+      padding: 13px;
+      margin-bottom: 16px;
+      border: 1px solid #d0d5dd;
+      border-radius: 9px;
+      font-size: 15px;
       background: white;
     }
 
-    input:focus {
+    input:focus, select:focus {
       outline: none;
-      border-color: #2563eb;
+      border-color: #0b3d3b;
     }
 
     button {
       width: 100%;
-      margin-top: 25px;
-      padding: 15px;
+      padding: 14px;
       border: none;
-      border-radius: 10px;
-      background: #2563eb;
+      border-radius: 9px;
+      background: #0b3d3b;
       color: white;
-      font-size: 17px;
+      font-size: 16px;
       font-weight: bold;
       cursor: pointer;
     }
 
     button:hover {
-      background: #1d4ed8;
-    }
-
-    #message {
-      margin-top: 18px;
-      text-align: center;
-      font-weight: bold;
+      background: #075a55;
     }
 
     .features {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
     }
 
     .feature {
       background: white;
-      padding: 18px 12px;
-      border-radius: 14px;
+      padding: 20px;
+      border-radius: 12px;
       text-align: center;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.05);
     }
 
     .feature h4 {
-      margin-bottom: 8px;
+      color: #0b3d3b;
+      margin-bottom: 7px;
     }
 
     .feature p {
       font-size: 13px;
-      color: #6b7280;
-      line-height: 1.4;
+      color: #667085;
     }
 
-    footer {
+    .footer {
+      margin-top: 35px;
+      padding: 20px;
+      background: #0b3d3b;
+      color: white;
       text-align: center;
-      padding: 25px;
-      color: #6b7280;
       font-size: 13px;
     }
-
-    @media (max-width: 600px) {
-      .features {
-        grid-template-columns: 1fr;
-      }
-
-      .booking-card {
-        padding: 20px;
-      }
-    }
-  </style></head><body>  <header>
+  </style></head><body>  <header class="header">
     <h1>UMzuzwana Shuttles</h1>
     <p>Safe • Reliable • Convenient</p>
-  </header>  <div class="container"><div class="booking-card">
-  <h2>Book Your Shuttle</h2>
-  <p class="subtitle">Your journey, our priority</p>
+  </header>  <section class="hero">
+    <h2>Your Journey, Our Priority</h2>
+    <p>
+      Reliable shuttle transportation for employees and airport passengers
+      in Johannesburg.
+    </p>
+  </section>  <section class="booking-card">
+    <h3>Book Your Shuttle</h3><form action="/book" method="POST">
 
-  <form id="bookingForm">
+  <label for="name">Full Name</label>
+  <input
+    type="text"
+    id="name"
+    name="name"
+    placeholder="Enter your full name"
+    required
+  >
 
-    <label for="name">Full Name</label>
-    <input
-      type="text"
-      id="name"
-      name="name"
-      placeholder="Enter your full name"
-      required
-    >
+  <label for="pickup">Pickup Location</label>
+  <input
+    type="text"
+    id="pickup"
+    name="pickup"
+    placeholder="Where should we pick you up?"
+    required
+  >
 
-    <label for="pickup">Pickup Location</label>
-    <input
-      type="text"
-      id="pickup"
-      name="pickup"
-      placeholder="Where should we pick you up?"
-      required
-    >
+  <label for="destination">Destination</label>
+  <input
+    type="text"
+    id="destination"
+    name="destination"
+    placeholder="Where are you going?"
+    required
+  >
 
-    <label for="destination">Destination</label>
-    <input
-      type="text"
-      id="destination"
-      name="destination"
-      placeholder="Where are you going?"
-      required
-    >
+  <label for="date">Travel Date</label>
+  <input
+    type="date"
+    id="date"
+    name="date"
+    required
+  >
 
-    <label for="date">Travel Date</label>
-    <input
-      type="date"
-      id="date"
-      name="date"
-      required
-    >
+  <label for="time">Pickup Time</label>
+  <input
+    type="time"
+    id="time"
+    name="time"
+    required
+  >
 
-    <label for="time">Pickup Time</label>
-    <input
-      type="time"
-      id="time"
-      name="time"
-      required
-    >
+  <button type="submit">Book Your Shuttle</button>
 
-    <button type="submit">Book Your Shuttle</button>
+</form>
 
-    <div id="message"></div>
-
-  </form>
+  </section>  <section class="features"><div class="feature">
+  <h4>Safe Travel</h4>
+  <p>Your safety is our priority on every journey.</p>
 </div>
 
-<div class="features">
-
-  <div class="feature">
-    <h4>Safe Travel</h4>
-    <p>Your safety is our priority on every journey.</p>
-  </div>
-
-  <div class="feature">
-    <h4>Reliable Service</h4>
-    <p>Professional and dependable shuttle transportation.</p>
-  </div>
-
-  <div class="feature">
-    <h4>Convenient Booking</h4>
-    <p>Book your shuttle quickly and easily.</p>
-  </div>
-
+<div class="feature">
+  <h4>Reliable Service</h4>
+  <p>Professional and dependable shuttle transportation.</p>
 </div>
 
-  </div>  <footer>
-    © 2026 UMzuzwana Shuttles • Johannesburg
-  </footer>  <script>
-    const form = document.getElementById("bookingForm");
-    const message = document.getElementById("message");
+<div class="feature">
+  <h4>Convenient Booking</h4>
+  <p>Book your shuttle quickly and easily online.</p>
+</div>
 
-    form.addEventListener("submit", async function(event) {
-      event.preventDefault();
-
-      message.textContent = "Sending booking...";
-
-      const booking = {
-        name: document.getElementById("name").value,
-        pickup: document.getElementById("pickup").value,
-        destination: document.getElementById("destination").value,
-        date: document.getElementById("date").value,
-        time: document.getElementById("time").value
-      };
-
-      try {
-        const response = await fetch("/book", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(booking)
-        });
-
-        const result = await response.json();
-
-        if (response.ok && result.success) {
-          message.textContent = "Booking sent successfully!";
-          form.reset();
-        } else {
-          message.textContent = result.message || "Unable to send booking. Please try again.";
-        }
-
-      } catch (error) {
-        message.textContent = "Unable to send booking. Please try again.";
-      }
-    });
-  </script></body>
+  </section>  <footer class="footer">
+    © 2026 UMzuzwana Shuttles. All rights reserved.
+  </footer></body>
 </html>
