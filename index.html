@@ -1,155 +1,219 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UMzuzwana Shuttles</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UMzuzwana Shuttles</title>  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-<style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f4f6f8;
-    color: #222;
-}
+    body {
+      background: #f4f7f9;
+      color: #1f2933;
+    }
 
-.header {
-    background: #111;
-    color: white;
-    padding: 28px 20px;
-    text-align: center;
-}
+    .header {
+      background: #0b3d3b;
+      color: white;
+      padding: 22px 20px;
+      text-align: center;
+    }
 
-.header h1 {
-    margin: 0;
-    font-size: 30px;
-}
+    .header h1 {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
 
-.header p {
-    margin: 8px 0 0;
-}
+    .header p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
 
-.card {
-    max-width: 500px;
-    margin: 25px auto;
-    background: white;
-    padding: 25px;
-    border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
+    .hero {
+      background: white;
+      padding: 35px 20px 25px;
+      text-align: center;
+    }
 
-h2 {
-    text-align: center;
-}
+    .hero h2 {
+      font-size: 25px;
+      color: #0b3d3b;
+      margin-bottom: 10px;
+    }
 
-label {
-    display: block;
-    margin-top: 15px;
-    font-weight: bold;
-}
+    .hero p {
+      color: #667085;
+      font-size: 15px;
+      line-height: 1.5;
+    }
 
-input {
-    width: 100%;
-    padding: 13px;
-    margin-top: 6px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-}
+    .booking-card {
+      background: white;
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
 
-button {
-    width: 100%;
-    margin-top: 25px;
-    padding: 15px;
-    background: #111;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 17px;
-    font-weight: bold;
-}
+    .booking-card h3 {
+      color: #0b3d3b;
+      margin-bottom: 20px;
+      font-size: 21px;
+    }
 
-#message {
-    margin-top: 20px;
-    text-align: center;
-    font-weight: bold;
-}
-</style>
-</head>
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #344054;
+    }
 
-<body>
+    input, select {
+      width: 100%;
+      padding: 13px;
+      margin-bottom: 16px;
+      border: 1px solid #d0d5dd;
+      border-radius: 9px;
+      font-size: 15px;
+      background: white;
+    }
 
-<div class="header">
+    input:focus, select:focus {
+      outline: none;
+      border-color: #0b3d3b;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 9px;
+      background: #0b3d3b;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #075a55;
+    }
+
+    .features {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .feature {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+    }
+
+    .feature h4 {
+      color: #0b3d3b;
+      margin-bottom: 7px;
+    }
+
+    .feature p {
+      font-size: 13px;
+      color: #667085;
+    }
+
+    .footer {
+      margin-top: 35px;
+      padding: 20px;
+      background: #0b3d3b;
+      color: white;
+      text-align: center;
+      font-size: 13px;
+    }
+  </style></head><body>  <header class="header">
     <h1>UMzuzwana Shuttles</h1>
     <p>Safe • Reliable • Convenient</p>
+  </header>  <section class="hero">
+    <h2>Your Journey, Our Priority</h2>
+    <p>
+      Reliable shuttle transportation for employees and airport passengers
+      in Johannesburg.
+    </p>
+  </section>  <section class="booking-card">
+    <h3>Book Your Shuttle</h3><form action="/book" method="POST">
+
+  <label for="name">Full Name</label>
+  <input
+    type="text"
+    id="name"
+    name="name"
+    placeholder="Enter your full name"
+    required
+  >
+
+  <label for="pickup">Pickup Location</label>
+  <input
+    type="text"
+    id="pickup"
+    name="pickup"
+    placeholder="Where should we pick you up?"
+    required
+  >
+
+  <label for="destination">Destination</label>
+  <input
+    type="text"
+    id="destination"
+    name="destination"
+    placeholder="Where are you going?"
+    required
+  >
+
+  <label for="date">Travel Date</label>
+  <input
+    type="date"
+    id="date"
+    name="date"
+    required
+  >
+
+  <label for="time">Pickup Time</label>
+  <input
+    type="time"
+    id="time"
+    name="time"
+    required
+  >
+
+  <button type="submit">Book Your Shuttle</button>
+
+</form>
+
+  </section>  <section class="features"><div class="feature">
+  <h4>Safe Travel</h4>
+  <p>Your safety is our priority on every journey.</p>
 </div>
 
-<div class="card">
-    <h2>Book Your Shuttle</h2>
-
-    <form id="bookingForm">
-
-        <label>Full Name</label>
-        <input type="text" id="name" required>
-
-        <label>Pickup Location</label>
-        <input type="text" id="pickup" required>
-
-        <label>Destination</label>
-        <input type="text" id="destination" required>
-
-        <label>Date</label>
-        <input type="date" id="date" required>
-
-        <label>Time</label>
-        <input type="time" id="time" required>
-
-        <button type="submit">Book Shuttle</button>
-
-    </form>
-
-    <div id="message"></div>
+<div class="feature">
+  <h4>Reliable Service</h4>
+  <p>Professional and dependable shuttle transportation.</p>
 </div>
 
-<script>
-document.getElementById("bookingForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
+<div class="feature">
+  <h4>Convenient Booking</h4>
+  <p>Book your shuttle quickly and easily online.</p>
+</div>
 
-    const booking = {
-        name: document.getElementById("name").value,
-        pickup: document.getElementById("pickup").value,
-        destination: document.getElementById("destination").value,
-        date: document.getElementById("date").value,
-        time: document.getElementById("time").value
-    };
-
-    const message = document.getElementById("message");
-    message.textContent = "Sending booking...";
-
-    try {
-        const response = await fetch("/book", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(booking)
-        });
-
-        const result = await response.json();
-
-        if (result.success) {
-            message.textContent = "Booking received successfully!";
-            document.getElementById("bookingForm").reset();
-        } else {
-            message.textContent = result.message;
-        }
-
-    } catch (error) {
-        message.textContent = "Unable to send booking. Please try again.";
-    }
-});
-</script>
-
-</body>
+  </section>  <footer class="footer">
+    © 2026 UMzuzwana Shuttles. All rights reserved.
+  </footer></body>
 </html>
