@@ -11,89 +11,69 @@
     }
 
     body {
-      background: #f4f7f9;
-      color: #1f2933;
+      background: #f4f6f8;
+      color: #222;
+      min-height: 100vh;
     }
 
-    .header {
-      background: #0b3d3b;
+    header {
+      background: #111827;
       color: white;
-      padding: 22px 20px;
       text-align: center;
+      padding: 30px 20px;
     }
 
-    .header h1 {
-      font-size: 28px;
-      margin-bottom: 6px;
+    header h1 {
+      font-size: 30px;
+      margin-bottom: 8px;
     }
 
-    .header p {
-      font-size: 14px;
-      opacity: 0.9;
-    }
-
-    .hero {
-      background: white;
-      padding: 35px 20px 25px;
-      text-align: center;
-    }
-
-    .hero h2 {
-      font-size: 25px;
-      color: #0b3d3b;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      color: #667085;
+    header p {
       font-size: 15px;
-      line-height: 1.5;
+      color: #d1d5db;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 0 20px;
     }
 
     .booking-card {
       background: white;
-      max-width: 500px;
-      margin: 20px auto;
-      padding: 25px;
+      padding: 28px;
       border-radius: 16px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
     }
 
-    .booking-card h3 {
-      color: #0b3d3b;
+    .booking-card h2 {
       margin-bottom: 20px;
-      font-size: 21px;
+      color: #111827;
     }
 
     label {
       display: block;
-      margin-bottom: 6px;
-      font-size: 14px;
+      margin-top: 15px;
+      margin-bottom: 7px;
       font-weight: bold;
-      color: #344054;
+      font-size: 14px;
     }
 
-    input, select {
+    input {
       width: 100%;
       padding: 13px;
-      margin-bottom: 16px;
-      border: 1px solid #d0d5dd;
-      border-radius: 9px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
       font-size: 15px;
-      background: white;
-    }
-
-    input:focus, select:focus {
-      outline: none;
-      border-color: #0b3d3b;
     }
 
     button {
       width: 100%;
+      margin-top: 22px;
       padding: 14px;
       border: none;
-      border-radius: 9px;
-      background: #0b3d3b;
+      border-radius: 8px;
+      background: #111827;
       color: white;
       font-size: 16px;
       font-weight: bold;
@@ -101,16 +81,19 @@
     }
 
     button:hover {
-      background: #075a55;
+      background: #1f2937;
+    }
+
+    #message {
+      margin-top: 18px;
+      text-align: center;
+      font-weight: bold;
     }
 
     .features {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 0 20px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 15px;
+      margin-top: 25px;
     }
 
     .feature {
@@ -118,38 +101,22 @@
       padding: 20px;
       border-radius: 12px;
       text-align: center;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
 
-    .feature h4 {
-      color: #0b3d3b;
+    .feature h3 {
       margin-bottom: 7px;
     }
 
     .feature p {
-      font-size: 13px;
-      color: #667085;
+      color: #666;
+      font-size: 14px;
     }
-
-    .footer {
-      margin-top: 35px;
-      padding: 20px;
-      background: #0b3d3b;
-      color: white;
-      text-align: center;
-      font-size: 13px;
-    }
-  </style></head><body>  <header class="header">
-    <h1>UMzuzwana Shuttles</h1>
-    <p>Safe • Reliable • Convenient</p>
-  </header>  <section class="hero">
-    <h2>Your Journey, Our Priority</h2>
-    <p>
-      Reliable shuttle transportation for employees and airport passengers
-      in Johannesburg.
-    </p>
-  </section>  <section class="booking-card">
-    <h3>Book Your Shuttle</h3><form action="/book" method="POST">
+  </style></head><body><header>
+  <h1>UMzuzwana Shuttles</h1>
+  <p>Safe • Reliable • Convenient</p>
+</header><div class="container">  <div class="booking-card">
+    <h2>Book Your Shuttle</h2><form id="bookingForm">
 
   <label for="name">Full Name</label>
   <input
@@ -196,29 +163,63 @@
 
   <button type="submit">Book Your Shuttle</button>
 
+  <div id="message"></div>
+
 </form>
-</section>
 
-  <section class="features">
-    <div class="feature">
-      <h4>Safe Travel</h4>
-      <p>Your safety is our priority on every journey.</p>
-    </div>
+  </div>  <div class="features"><div class="feature">
+  <h3>Safe Travel</h3>
+  <p>Your safety is our priority on every journey.</p>
+</div>
 
-    <div class="feature">
-      <h4>Reliable Service</h4>
-      <p>Professional and dependable shuttle transportation.</p>
-    </div>
+<div class="feature">
+  <h3>Reliable Service</h3>
+  <p>Professional and dependable shuttle transportation.</p>
+</div>
 
-    <div class="feature">
-      <h4>Convenient Booking</h4>
-      <p>Book your shuttle quickly and easily.</p>
-    </div>
-  </section>
+<div class="feature">
+  <h3>Convenient Booking</h3>
+  <p>Book your shuttle quickly and easily.</p>
+</div>
 
-  <footer class="footer">
-    <p>© 2026 UMzuzwana Shuttles. All rights reserved.</p>
-  </footer>
+  </div></div><script>
+  const form = document.getElementById("bookingForm");
+  const message = document.getElementById("message");
 
-</body>
+  form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const bookingData = {
+      name: document.getElementById("name").value,
+      pickup: document.getElementById("pickup").value,
+      destination: document.getElementById("destination").value,
+      date: document.getElementById("date").value,
+      time: document.getElementById("time").value
+    };
+
+    message.textContent = "Submitting booking...";
+
+    try {
+      const response = await fetch("/bookings", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(bookingData)
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        message.textContent = "Booking successful! Thank you.";
+        form.reset();
+      } else {
+        message.textContent = result.message || "Booking could not be completed.";
+      }
+
+    } catch (error) {
+      message.textContent = "Unable to submit booking. Please try again.";
+    }
+  });
+</script></body>
 </html>
